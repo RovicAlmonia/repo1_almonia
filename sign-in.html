@@ -1,0 +1,226 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <title>RYKLOVEN SOLE - Login/Register</title>
+    <!-- CSS FILES -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100;300;400;700;900&display=swap" rel="stylesheet">
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <link href="css/bootstrap-icons.css" rel="stylesheet">
+    <link rel="stylesheet" href="css/slick.css"/>
+    <link href="css/RYKLOVEN.css" rel="stylesheet">
+    <style>
+        .navbar-nav .dropdown-menu {
+            background-color: #fff;
+            border: none;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .navbar-nav .dropdown-item {
+            color: #333;
+            padding: 10px 20px;
+        }
+
+        .navbar-nav .dropdown-item:hover {
+            background-color: #f8f9fa;
+        }
+
+        .custom-profile-icon {
+            width: 32px;
+            height: 32px;
+            border-radius: 50%;
+        }
+
+        .custom-btn {
+            background-color: #000000;
+            color: white;
+        }
+
+        .form-container {
+            background-color: #ffffff;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            padding: 30px;
+            margin: 20px 0;
+        }
+
+        .form-container h2 {
+            color: #000000;
+            margin-bottom: 20px;
+        }
+
+        .form-floating label {
+            color: #6c757d;
+        }
+
+        .form-floating input {
+            border-radius: 10px;
+            padding: 15px;
+        }
+
+        .form-floating input:focus {
+            border-color: #000000;
+            box-shadow: 0 0 0 0.2rem rgba(0, 123, 255, 0.25);
+        }
+
+        .form-floating .btn {
+            border-radius: 10px;
+            padding: 10px 0;
+        }
+
+        .text-center a {
+            color: #ffbebe;
+            text-decoration: none;
+        }
+
+        .text-center a:hover {
+            text-decoration: underline;
+        }
+
+        .sign-in-form,
+        .register-form {
+            margin-top: 100px; /* Increased value to move the forms lower */
+        }
+    </style>
+</head>
+<body>
+<nav class="navbar navbar-expand-lg">
+    <div class="container">
+        <a class="navbar-brand" href="#">
+            <strong><span>RYKLOVEN</span> SOLE</strong>
+        </a>
+        <div class="d-lg-none">
+            <a href="#" class="bi-person custom-icon me-3"><img id="profileIconSmall" src="default-profile.png" class="custom-profile-icon"></a>
+        </div>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav mx-auto">
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Home</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Explore</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">About Us</                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Contact Us</a>
+                </li>
+            </ul>
+            <div class="d-none d-lg-block">
+                <a href="#" class="bi-person custom-icon me-3"><img id="profileIconLarge" src="default-profile.png" class="custom-profile-icon"></a>
+            </div>
+        </div>
+    </div>
+</nav>
+
+<main>
+    <section class="sign-in-form">
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-lg-5 col-12 form-container">
+                    <h2 class="text-center">Sign In</h2>
+                    <form id="loginForm">
+                        <div class="form-floating mb-3">
+                            <input type="email" class="form-control" id="loginEmail" placeholder="Email Address">
+                            <label for="loginEmail">Email Address</label>
+                        </div>
+                        <div class="form-floating mb-3">
+                            <input type="password" class="form-control" id="loginPassword" placeholder="Password">
+                            <label for="loginPassword">Password</label>
+                        </div>
+                        <button type="submit" class="btn custom-btn form-control mt-4 mb-3">Sign In</button>
+                        <div class="text-center">
+                            <p>Don't have an account? <a href="#" onclick="switchToRegistration()">Register here</a></p>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="register-form" style="display: none;">
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-lg-5 col-12 form-container">
+                    <h2 class="text-center">Register</h2>
+                    <form id="registrationForm">
+                        <div class="form-floating mb-3">
+                            <input type="text" class="form-control" id="registrationFirstName" placeholder="First Name">
+                            <label for="registrationFirstName">First Name</label>
+                        </div>
+                        <div class="form-floating mb-3">
+                            <input type="text" class="form-control" id="registrationLastName" placeholder="Last Name">
+                            <label for="registrationLastName">Last Name</label>
+                        </div>
+                        <div class="form-floating mb-3">
+                            <input type="email" class="form-control" id="registrationEmail" placeholder="Email Address">
+                            <label for="registrationEmail">Email Address</label>
+                        </div>
+                        <div class="form-floating mb-3">
+                            <input type="password" class="form-control" id="registrationPassword" placeholder="Password">
+                            <label for="registrationPassword">Password</label>
+                        </div>
+                        <div class="form-floating mb-3">
+                            <input type="file" class="form-control" id="registrationProfilePicture" placeholder="Profile Picture" accept="image/*">
+                            <label for="registrationProfilePicture">Profile Picture</label>
+                        </div>
+                        <button type="submit" class="btn custom-btn form-control mt-4 mb-3">Register</button>
+                        <div class="text-center">
+                            <p>Already have an account? <a href="#" onclick="switchToLogin()">Sign In here</a></p>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+</main>
+
+<script src="js/jquery.min.js"></script>
+<script src="js/bootstrap.min.js"></script>
+<script>
+    $(document).ready(function() {
+        $('#loginForm').submit(function(event) {
+            event.preventDefault();
+            alert('Login form submitted');
+            // Add your AJAX login logic here
+
+            // Simulate fetching user data
+            var userProfilePicture = 'user-profile-picture.jpg'; // Replace with actual logic to fetch the user's profile picture URL
+            $('#profileIconSmall, #profileIconLarge').attr('src', userProfilePicture);
+            window.location.href = 'products.html';
+        });
+
+        $('#registrationForm').submit(function(event) {
+            event.preventDefault();
+            alert('Registration form submitted');
+            // Add your AJAX registration logic here
+            
+            // Example logic to update the navbar profile picture after registration
+            var fileInput = $('#registrationProfilePicture')[0];
+            if (fileInput.files && fileInput.files[0]) {
+                var reader = new FileReader();
+                reader.onload = function(e) {
+                    $('#profileIconSmall, #profileIconLarge').attr('src', e.target.result);
+                }
+                reader.readAsDataURL(fileInput.files[0]);
+            }
+        });
+
+        window.switchToLogin = function() {
+            $('.register-form').hide();
+            $('.sign-in-form').show();
+        };
+
+        window.switchToRegistration = function() {
+            $('.sign-in-form').hide();
+            $('.register-form').show();
+        };
+    });
+</script>
+</body>
+</html>
